@@ -21,9 +21,8 @@ console.log(podcasts.value);
 <template>
 
     <Header></Header>
-    <nav>
-      <Filter></Filter>
-    </nav>
+    <Filter></Filter>
+   
 <section>
   <main>
   <ul>
@@ -43,10 +42,6 @@ header {
  height: 20%;
 }
 
-filter {
-   width: 100%;
- height: 20%;
-}
 
 ul {
   display: grid;

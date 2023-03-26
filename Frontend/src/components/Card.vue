@@ -25,9 +25,7 @@ const props = defineProps({
       </v-card-subtitle>
   
       <v-card-text>
-        <div></div>
-  
-        <div></div>
+     
       </v-card-text>
   
     </v-card>

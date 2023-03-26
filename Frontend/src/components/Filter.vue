@@ -1,3 +1,30 @@
+    <script>
+    // export default {
+    //   data() {
+    //     return {
+    //       inputValue: "",
+    //     };
+    //   },
+    // };
+    export default {
+      data: () => ({
+        loaded: false,
+        loading: false,
+      }),
+  
+      methods: {
+        onClick () {
+          this.loading = true
+  
+          setTimeout(() => {
+            this.loading = false
+            this.loaded = true
+          }, 2000)
+        },
+      },
+    }
+    </script>
+
 <template>
     <!-- <v-text-field v-model="inputValue" label="Filter podcast ..." /> -->
     <v-card
@@ -19,29 +46,3 @@
     </v-card-text>
   </v-card>
   </template>
-  <script>
-  // export default {
-  //   data() {
-  //     return {
-  //       inputValue: "",
-  //     };
-  //   },
-  // };
-  export default {
-    data: () => ({
-      loaded: false,
-      loading: false,
-    }),
-
-    methods: {
-      onClick () {
-        this.loading = true
-
-        setTimeout(() => {
-          this.loading = false
-          this.loaded = true
-        }, 2000)
-      },
-    },
-  }
-  </script>

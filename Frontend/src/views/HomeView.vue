@@ -1,30 +1,90 @@
 <script setup>
 import Header from '../components/Header.vue'
-import Card from '../components/Card.vue'
 import Filter from '../components/Filter.vue'
+import Card from '../components/Card.vue'
 import axios from 'axios'
 import { ref } from 'vue'
 import { onBeforeMount } from 'vue'
 
-let podcasts = ref([ ])
+let podcasts = ref([])
 const api = async () => {
   const response = await axios.get('https://itunes.apple.com/us/rss/toppodcasts/limit=100/genre=1310/json')
   return response.data.feed.entry
 }
-onBeforeMount(async()=>{podcasts.value = await api()
+onBeforeMount(async () => {
+  podcasts.value = await api()
   console.log(podcasts.value);
 })
 console.log(podcasts.value);
 </script>
 
 <template>
-  <div>
-    <Header />
-  </div>
-  <div v-for="podcast of podcasts">
+
+    <Header></Header>
+    <nav>
+      <Filter></Filter>
+    </nav>
+<section>
+  <main>
+  <ul>
+    <div v-for="podcast of podcasts">
     <Card :podcast="podcast" />
   </div>
-  <div>
-    <Filter />
-  </div>
+</ul>
+</main>
+</section>
+
 </template>
+
+<style scoped>
+
+header {
+ width: 100%;
+ height: 20%;
+}
+
+filter {
+   width: 100%;
+ height: 20%;
+}
+
+ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 25px;
+  list-style: none;
+}
+
+
+section {
+  padding: 30px;
+  font-size: 16px;
+  font-family: "Roboto", sans-serif;
+}
+
+@media (max-width:900px) {
+  ul {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width:700px) {
+  ul {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width:500px) {
+  h2 {
+    margin-bottom: 30px;
+  }
+
+  ul {
+    grid-template-columns: 1fr;
+  }
+
+  section {
+    padding: 0;
+  }
+}
+</style>

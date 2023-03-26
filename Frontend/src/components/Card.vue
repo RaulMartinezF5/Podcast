@@ -10,7 +10,7 @@ const props = defineProps({
 <template>
     <v-card
       class="mx-auto"
-      max-width="400"
+      max-width="250"
     >
       <v-img
         class="align-end text-white"
@@ -25,9 +25,9 @@ const props = defineProps({
       </v-card-subtitle>
   
       <v-card-text>
-        <div>Whitehaven Beach</div>
+        <div></div>
   
-        <div>Whitsunday Island, Whitsunday Islands</div>
+        <div></div>
       </v-card-text>
   
     </v-card>
